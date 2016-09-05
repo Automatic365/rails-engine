@@ -24,3 +24,6 @@ coverage
 
 # Ignore VCR
 /spec/vcr_cassettes
+
+# Ignore csv files
+/db/csv
