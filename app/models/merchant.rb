@@ -6,7 +6,7 @@ class Merchant < ApplicationRecord
     # merchant = Merchant.includes(:invoices)    
     merchant_revenue = [] 
     merchant = Merchant.find(id)
-    # require "pry"; binding.pry
+
     merchant.invoices.each do |invoice|
      invoice.items.each do |item|
        merchant_revenue << item.unit_price
