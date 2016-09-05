@@ -6,7 +6,7 @@ task :import => [:environment] do
     file = "db/csv/customers.csv"
 
     CSV.foreach(file, headers: true) do |row|
-      Customer.create(
+      Customer.create!(
         first_name: row[1],
         last_name: row[2],
         created_at: row[3],
@@ -21,7 +21,7 @@ task :import => [:environment] do
     file = "db/csv/merchants.csv"
 
     CSV.foreach(file, headers: true) do |row|
-      Merchant.create(
+      Merchant.create!(
         name: row[1],
         created_at: row[2],
         updated_at: row[3]
@@ -35,7 +35,7 @@ task :import => [:environment] do
     file = "db/csv/items.csv"
 
     CSV.foreach(file, headers: true) do |row|
-      Item.create(
+      Item.create!(
         name: row[1],
         description: row[2],
         unit_price: row[3],
@@ -85,11 +85,11 @@ task :import => [:environment] do
     file = "db/csv/invoice_items.csv"
 
     CSV.foreach(file, headers: true) do |row|
-      InvoiceItem.create(
-        quantity: row[1],
-        unit_price: row[2],
-        invoice_id: row[3],
-        item_id: row[4],
+      InvoiceItem.create!(
+        item_id: row[1],
+        invoice_id: row[2],
+        quantity: row[3],
+        unit_price: row[4],
         created_at: row[5],
         updated_at: row[6]
       )

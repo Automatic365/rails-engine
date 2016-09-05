@@ -3,7 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
     create_table :transactions do |t|
       t.date :credit_card_expiration_date
       t.string :result
-      t.integer :credit_card_number, :limit => 16
+      t.string :credit_card_number
       t.references :invoice, foreign_key: true
 
       t.timestamps
