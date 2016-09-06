@@ -3,7 +3,6 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
   def show
     merchant = Merchant.find(params[:id])
 
-    # require "pry"; binding.pry
     respond_with merchant.total_revenue(merchant.id)
   end
 
