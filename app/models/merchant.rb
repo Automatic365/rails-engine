@@ -1,17 +1,13 @@
 class Merchant < ApplicationRecord
   has_many :invoices
   has_many :items
-  
-  def total_revenue(id)
-    # merchant = Merchant.includes(:invoices)    
-    merchant_revenue = [] 
-    merchant = Merchant.find(id)
+  has_many :invoice_items, through: :invoices
 
-    merchant.invoices.each do |invoice|
-     invoice.items.each do |item|
-       merchant_revenue << item.unit_price
-     end
-    end    
-    merchant_revenue.reduce(:+)
+  def total_revenue(id)
+    Merchant.select("invoices.merchant_id, sum (invoice_items.quantity * invoice_items.unit_price) as revenue")
+    .joins(:invoice_items)
+    .where('invoices.merchant_id = ?', id)
+    .group("invoices.merchant_id")
   end
+
 end
