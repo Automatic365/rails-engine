@@ -2,9 +2,9 @@ class Api::V1::MerchantsController < ApplicationController
   respond_to :json
 
   def index
-    merchant = Merchant.all
+    merchants = Merchant.all
 
-    respond_with merchant
+    respond_with merchants
   end
 
   def show
