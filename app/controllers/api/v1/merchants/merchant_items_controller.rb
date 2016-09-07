@@ -1,7 +1,7 @@
 class Api::V1::Merchants::MerchantItemsController < ApplicationController
   respond_to :json
 
-  def show
+  def index
     merchant = Merchant.find(params[:id])
 
     respond_with merchant.items

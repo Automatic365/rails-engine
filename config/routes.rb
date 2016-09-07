@@ -7,7 +7,8 @@ Rails.application.routes.draw do
         get 'find', on: :collection, to: "merchants/searches#show"
         get 'find_all', on: :collection, to: "merchants/searches#index"
         get 'random', on: :collection, to: "merchants/random#show"
-        get ':id/items', on: :collection, to: "merchants/merchant_items#show"
+        get ':id/items', on: :collection, to: "merchants/merchant_items#index"
+        get ':id/invoices', on: :collection, to: "merchants/merchant_invoices#index"
       end
 
       resources :transactions, only:[:index, :show] do
