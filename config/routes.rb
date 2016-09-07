@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       end
 
         resources :transactions, only:[:index, :show] do
-
+          get 'find', on: :collection, to: "transactions/searches#show"
+          get 'find_all', on: :collection, to: "transactions/searches#index"
+          get 'random', on: :collection, to: "transactions/random#show"
       end
     end
   end
