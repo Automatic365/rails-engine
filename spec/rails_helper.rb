@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 # require 'capybara/rails'
 require 'database_cleaner'
-require 'awesome_print'
+# require 'awesome_print'
 require 'faker'
 
 Shoulda::Matchers.configure do |config|
