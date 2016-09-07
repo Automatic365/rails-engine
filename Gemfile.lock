@@ -233,7 +233,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
-  factory_girl_rails
+  factory_girl_rails (~> 4.0)
   faraday
   figaro
   jbuilder (~> 2.5)
