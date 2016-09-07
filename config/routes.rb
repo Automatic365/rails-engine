@@ -9,10 +9,16 @@ Rails.application.routes.draw do
         get 'random', on: :collection, to: "merchants/random#show"
       end
 
-        resources :transactions, only:[:index, :show] do
-          get 'find', on: :collection, to: "transactions/searches#show"
-          get 'find_all', on: :collection, to: "transactions/searches#index"
-          get 'random', on: :collection, to: "transactions/random#show"
+      resources :transactions, only:[:index, :show] do
+        get 'find', on: :collection, to: "transactions/searches#show"
+        get 'find_all', on: :collection, to: "transactions/searches#index"
+        get 'random', on: :collection, to: "transactions/random#show"
+      end
+
+      resources :customers, only:[:index, :show] do
+        get 'find', on: :collection, to: "customers/searches#show"
+        get 'find_all', on: :collection, to: "customers/searches#index"
+        get 'random', on: :collection, to: "customers/random#show"
       end
     end
   end
