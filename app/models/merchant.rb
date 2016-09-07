@@ -10,4 +10,8 @@ class Merchant < ApplicationRecord
     .group("invoices.merchant_id")
   end
 
+  def self.random
+    limit(1).order("RANDOM()")
+  end
+
 end
