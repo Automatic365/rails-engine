@@ -9,16 +9,13 @@ Rails.application.routes.draw do
         get 'random', on: :collection, to: "merchants/random#show"
         get ':id/items', on: :collection, to: "merchants/merchant_items#index"
         get ':id/invoices', on: :collection, to: "merchants/merchant_invoices#index"
-
-
-
-    # GET /api/v1/merchants/:id/items returns a collection of items associated with that merchant
       end
 
       resources :transactions, only:[:index, :show] do
         get 'find', on: :collection, to: "transactions/searches#show"
         get 'find_all', on: :collection, to: "transactions/searches#index"
         get 'random', on: :collection, to: "transactions/random#show"
+        get '/:id/invoice', on: :collection, to: "transactions/invoices#show"
       end
 
       resources :customers, only:[:index, :show] do
