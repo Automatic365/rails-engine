@@ -7,6 +7,8 @@ Rails.application.routes.draw do
         get 'find', on: :collection, to: "merchants/searches#show"
         get 'find_all', on: :collection, to: "merchants/searches#index"
         get 'random', on: :collection, to: "merchants/random#show"
+        get ':id/items', on: :collection, to: "merchants/merchant_items#index"
+        get ':id/invoices', on: :collection, to: "merchants/merchant_invoices#index"
       end
 
       resources :transactions, only:[:index, :show] do
@@ -37,12 +39,16 @@ Rails.application.routes.draw do
          get 'find', on: :collection, to: "items/search#show"
          get 'find_all', on: :collection, to: "items/search#index"
          get 'random', on: :collection, to: "items/random#show"
+         get '/:id/invoice_items', on: :collection, to: "items/item_invoice_items#index"
+         get '/:id/merchant', on: :collection, to: "items/items_merchant#index"
        end
 
        resources :invoice_items, only: [:index, :show] do
          get 'find', on: :collection, to: "invoice_items/search#show"
          get 'find_all', on: :collection, to: "invoice_items/search#index"
          get 'random', on: :collection, to: "invoice_items/random#show"
+         get '/:id/invoice', on: :collection, to: "invoice_items/invoice_items_invoice#index"
+         get '/:id/item', on: :collection, to: "invoice_items/invoice_items_item#index"
        end
      end
   end
