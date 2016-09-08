@@ -6,5 +6,4 @@ class Api::V1::Merchants::RandomController < ApplicationController
 
     respond_with merchant
   end
-
 end

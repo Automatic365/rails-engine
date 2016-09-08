@@ -17,16 +17,18 @@ gem 'faraday'
 gem 'responders'
 gem 'table_print'
 gem 'spring'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'simplecov', require: false
   gem 'pry-rails'
 end
