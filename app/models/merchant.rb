@@ -18,8 +18,15 @@ class Merchant < ApplicationRecord
   end
 
   def pending_invoices
-    customer_ids = invoices.joins(:transactions).where("transactions.result = 'failed'").pluck("invoices.customer_id").uniq
+    customer_ids = invoices.joins(:transactions)
+    .where("transactions.result = 'failed'").pluck("invoices.customer_id").uniq
     Customer.find(customer_ids)
   end
+
+  def self.most_items(quantity)
+    Merchant.joins(invoices: :invoice_items).group(:id)
+    .order('sum(invoice_items.quantity) DESC').limit(quantity)
+  end
+
 
 end
