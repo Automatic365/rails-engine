@@ -44,6 +44,7 @@ Rails.application.routes.draw do
          get 'random', on: :collection, to: "items/random#show"
          get '/:id/invoice_items', on: :collection, to: "items/item_invoice_items#index"
          get '/:id/merchant', on: :collection, to: "items/items_merchant#index"
+         get '/:id/best_day', on: :collection, to: "items/revenues#index"
        end
 
        resources :invoice_items, only: [:index, :show] do
