@@ -6,5 +6,4 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
 
     respond_with merchant.total_revenue(merchant.id)
   end
-
 end

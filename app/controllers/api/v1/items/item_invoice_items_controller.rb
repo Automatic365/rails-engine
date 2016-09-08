@@ -6,6 +6,4 @@ class Api::V1::Items::ItemInvoiceItemsController < ApplicationController
 
     respond_with item.invoice_items
   end
-
-
 end
