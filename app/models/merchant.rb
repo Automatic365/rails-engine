@@ -12,7 +12,7 @@ class Merchant < ApplicationRecord
 
   def self.revenue_by_day(id, date)
     Merchant.joins(invoices: [:transactions, :invoice_items])
-    .where(id: merchant_id).where(transactions: { result: 'success' })
+    .where(id: id).where(transactions: { result: 'success' })
     .where(invoices: { created_at: date})
     .sum('invoice_items.quantity * invoice_items.unit_price')
   end

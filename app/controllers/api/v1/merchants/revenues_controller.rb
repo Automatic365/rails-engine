@@ -3,7 +3,7 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
 
   def show
     if params[:date]
-      Merchant.revenue_by_day(params[:id], params[:date])
+      merchant = Merchant.revenue_by_day(params[:id], params[:date])
       respond_with merchant
     else
       merchant = Merchant.find(params[:id])
