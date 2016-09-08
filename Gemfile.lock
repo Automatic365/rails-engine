@@ -237,12 +237,8 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
-<<<<<<< HEAD
   factory_girl_rails (~> 4.0)
-=======
-  factory_girl_rails
   faker
->>>>>>> cc45bf499c75cd219122f898791ae8204c4bc30c
   faraday
   figaro
   jbuilder (~> 2.5)
