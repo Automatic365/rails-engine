@@ -6,5 +6,4 @@ class Api::V1::Items::RandomController < ApplicationController
 
     respond_with item
   end
-
 end

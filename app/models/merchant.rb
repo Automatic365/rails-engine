@@ -9,5 +9,10 @@ class Merchant < ApplicationRecord
     .where('invoices.merchant_id = ?', id)
     .group("invoices.merchant_id")
   end
+  
+  def pending_invoices
+    customer_ids = invoices.joins(:transactions).where("transactions.result = 'failed'").pluck("invoices.customer_id").uniq
+    Customer.find(customer_ids)
+  end
 
 end

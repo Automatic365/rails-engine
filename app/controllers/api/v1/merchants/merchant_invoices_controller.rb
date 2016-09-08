@@ -6,5 +6,4 @@ class Api::V1::Merchants::MerchantInvoicesController < ApplicationController
 
     respond_with merchant.invoices
   end
-
 end
