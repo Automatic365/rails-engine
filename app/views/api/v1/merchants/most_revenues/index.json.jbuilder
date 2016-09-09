@@ -1,1 +1,1 @@
-json.array! @most_revenue, partial: 'most', as: :merchant
+json.array! @most_revenue, partial: 'most', as: :merchant 
