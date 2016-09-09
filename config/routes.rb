@@ -16,7 +16,6 @@ Rails.application.routes.draw do
         get ':id/favorite_customer', on: :collection, to: "merchants/customers#index"
       end
 
-# GET /api/v1/merchants/:id/favorite_customer returns the customer who has conducted the most total number of successful transactions.
       resources :transactions, only:[:index, :show] do
         get 'find', on: :collection, to: "transactions/searches#show"
         get 'find_all', on: :collection, to: "transactions/searches#index"
