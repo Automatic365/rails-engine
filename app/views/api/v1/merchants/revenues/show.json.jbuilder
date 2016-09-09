@@ -3,3 +3,4 @@
   else
     json.revenue @merchant.total_revenue
   end
+
