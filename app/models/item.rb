@@ -12,4 +12,11 @@ class Item < ApplicationRecord
     .sum("invoice_items.quantity * invoice_items.unit_price")
     .keys.first
   end
+
+  def formatted_unit_price
+    # require "pry"; binding.pry
+    formatted = unit_price/100.00
+    formatted.to_s
+  end
+
 end
