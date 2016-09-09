@@ -2,15 +2,15 @@ class Api::V1::Customers::SearchesController < ApplicationController
   respond_to :json
 
   def index
-    customer = Customer.where(customer_params)
+    @customers = Customer.where(customer_params)
 
-    respond_with customer
+    respond_with @customers
   end
 
   def show
-    customer = Customer.find_by(customer_params)
+    @customer = Customer.find_by(customer_params)
 
-    respond_with customer
+    respond_with @customer
   end
 
   private
