@@ -1,0 +1,1 @@
+json.array! @merchant.pending_invoices
