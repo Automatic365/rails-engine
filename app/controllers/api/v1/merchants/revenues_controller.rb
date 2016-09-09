@@ -10,7 +10,12 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
       respond_with @merchant
     end
   end
-  
+
+  def index
+    @merchants = Merchant.all_revenue(params[:date])
+  end
+
+
   private
     def revenue_params
       params.permit(:id, :date)
