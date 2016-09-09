@@ -19,13 +19,21 @@ class Merchant < ApplicationRecord
     # SELECT sum(invoice_items.quantity * invoice_items.unit_price) AS sum FROM invoices INNER JOIN merchants ON invoices.merchant_id = merchants.id INNER JOIN transactions ON transactions.invoice_id = invoices.id INNER JOIN invoice_items ON invoice_items.invoice_id = invoices.id WHERE transactions.result = 'success' AND merchants.id = 30 AND invoices.created_at = '2012-03-16 11:55:05' GROUP BY merchants.id;
   end
 
+<<<<<<< HEAD
   def self.most_revenue(quantity)
+=======
+  def self.most_revenue(group_number)
+>>>>>>> master
     select("merchants.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS most_revenue")
     .joins(invoices: [:transactions, :invoice_items])
     .where(transactions: {result: "success"})
     .group("merchants.id")
     .order("most_revenue DESC")
+<<<<<<< HEAD
     .take(quantity)
+=======
+    .take(group_number)
+>>>>>>> master
   end
 
   def pending_invoices
