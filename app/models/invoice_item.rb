@@ -10,8 +10,8 @@ class InvoiceItem < ApplicationRecord
     formatted = unit_price/100.00
     formatted.to_s
   end
-  
-  def unit_price
-    (self[:unit_price]).round(2).to_s
-  end
+  # 
+  # def unit_price
+  #   (self[:unit_price]).round(2).to_s
+  # end
 end

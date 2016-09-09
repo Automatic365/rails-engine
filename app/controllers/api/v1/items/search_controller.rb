@@ -14,7 +14,7 @@ class Api::V1::Items::SearchController < ApplicationController
       @item = Item.find_by(unit_price: new_price) 
       respond_with @item
     else
-      @item = Item.find_by(item_params) 
+      @item = Item.where(item_params).order(:id).take 
       respond_with @item
     end
   end

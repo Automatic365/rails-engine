@@ -1,1 +1,1 @@
-json.extract! :most_revenue
+json.extract! merchant, :id, :name, :most_revenue

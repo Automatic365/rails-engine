@@ -6,6 +6,7 @@ class Merchant < ApplicationRecord
   has_many :transactions, through: :invoices
 
   def total_revenue
+    # require "pry"; binding.pry
     (invoices.successful.map(&:total_amount).reduce(:+)/100.00).to_s
   end
 
