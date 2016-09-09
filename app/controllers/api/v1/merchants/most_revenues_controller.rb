@@ -3,7 +3,7 @@ class Api::V1::Merchants::MostRevenuesController < ApplicationController
 
   def index
     @most_revenue = Merchant.most_revenue(params[:group_number])
-    
+
     respond_with @most_revenue
   end
 
