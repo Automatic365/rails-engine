@@ -22,4 +22,11 @@ class Merchant < ApplicationRecord
     customer_ids = invoices.joins(:transactions).where("transactions.result = 'failed'").pluck("invoices.customer_id").uniq
     Customer.find(customer_ids)
   end
+  
+  def self.all_revenue(date)
+    joins(invoices: [:transactions, :invoice_items])
+    .where(transactions: {result: 'success'})
+    .where(invoices: { created_at: date})
+    .sum('(invoice_items.quantity * invoice_items.unit_price)/100.00')    
+  end
 end

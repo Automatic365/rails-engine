@@ -11,6 +11,11 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
     end
   end
   
+  def index
+    # require "pry"; binding.pry
+    @merchants = Merchant.all_revenue(params[:date])
+  end
+  
   private
     def revenue_params
       params.permit(:id, :date)
