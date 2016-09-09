@@ -1,4 +1,1 @@
-if params[:group_number]
-   json.most_revenue @most_revenue
- else
- end
+json.array! @most_revenue, partial: 'most', as: :merchant
