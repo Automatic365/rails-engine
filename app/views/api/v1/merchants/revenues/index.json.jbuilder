@@ -1,1 +1,1 @@
-json.revenue @merchants
+json.total_revenue @merchants
