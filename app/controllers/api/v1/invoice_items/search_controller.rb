@@ -2,8 +2,16 @@ class Api::V1::InvoiceItems::SearchController < ApplicationController
   respond_to :json
   
   def index
-    invoice_items = InvoiceItem.where(invoice_item_params)
-    respond_with invoice_items
+    if params[:unit_price]
+      price = params[:unit_price] 
+      new_price = price.to_f * 100
+      new_price = new_price.round(1).to_i
+      @invoice_items = InvoiceItem.where(unit_price: new_price)
+      respond_with @invoice_items
+    else
+      @invoice_item = InvoiceItem.where(invoice_item_params) 
+      respond_with @invoice_items
+    end
   end
   
   def show

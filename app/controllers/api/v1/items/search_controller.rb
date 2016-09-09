@@ -8,17 +8,14 @@ class Api::V1::Items::SearchController < ApplicationController
   
   def show
     if params[:unit_price]
-      # require "pry"; binding.pry
       price = params[:unit_price] 
       new_price = price.to_f * 100
-      params[:new_price] = new_price
-      params[:unit_price] = params[:new_price]
-      number_with_precision
-      item = Item.find_by(params[:unit_price]) 
-      respond_with item
+      new_price = new_price.round(1).to_i
+      @item = Item.find_by(unit_price: new_price) 
+      respond_with @item
     else
-      item = Item.find_by(item_params) 
-      respond_with item
+      @item = Item.find_by(item_params) 
+      respond_with @item
     end
   end
   
