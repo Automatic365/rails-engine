@@ -18,6 +18,15 @@ class Merchant < ApplicationRecord
 
     # SELECT sum(invoice_items.quantity * invoice_items.unit_price) AS sum FROM invoices INNER JOIN merchants ON invoices.merchant_id = merchants.id INNER JOIN transactions ON transactions.invoice_id = invoices.id INNER JOIN invoice_items ON invoice_items.invoice_id = invoices.id WHERE transactions.result = 'success' AND merchants.id = 30 AND invoices.created_at = '2012-03-16 11:55:05' GROUP BY merchants.id;
   end
+  
+  def self.most_revenue(group_number)
+    select("merchants.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS most_revenue")
+    .joins(invoices: [:transactions, :invoice_items])
+    .where(transactions: {result: "success"})
+    .group("merchants.id")
+    .order("most_revenue DESC")
+    .take(group_number)
+  end
 
   def pending_invoices
     customer_ids = invoices.joins(:transactions)
@@ -26,7 +35,7 @@ class Merchant < ApplicationRecord
   end
 
   def self.most_items(quantity)
-    Merchant.joins(invoices: :invoice_items).group(:id)
+    Merchant.joins(invoices: [:transactions, :invoice_items]).group('merchants.id')
     .order('sum(invoice_items.quantity) DESC').limit(quantity)
   end
 
@@ -34,7 +43,7 @@ class Merchant < ApplicationRecord
     joins(invoices: [:transactions, :invoice_items])
     .where(transactions: {result: 'success'})
     .where(invoices: { created_at: date})
-    .sum('(invoice_items.quantity * invoice_items.unit_price)/100.00')
+    .sum('(invoice_items.quantity * invoice_items.unit_price/100.00)')
   end
   
   def favorite_customer

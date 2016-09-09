@@ -79,6 +79,9 @@ task :import => [:environment] do
     end
 end
 
+  # def currency(input)
+  #   input.insert(-3, ".")
+  # end
 
 desc "Import invoice_items from csv file"
 task :import => [:environment] do
@@ -90,7 +93,7 @@ task :import => [:environment] do
         item_id: row[1],
         invoice_id: row[2],
         quantity: row[3],
-        unit_price: row[4], 
+        unit_price: row[4], #currency(row[4]), 
         created_at: row[5],
         updated_at: row[6]
       )
