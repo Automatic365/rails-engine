@@ -2,9 +2,9 @@ class Api::V1::Items::RevenuesController < ApplicationController
   respond_to :json
 
   def index
-    item = Item.find(params[:id])
+    @best_day = Item.find(params[:id]).best_day_revenue
 
-    respond_with item.best_day_revenue
+    respond_with @best_day
   end
 
   def show
