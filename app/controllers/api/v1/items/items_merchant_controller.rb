@@ -6,6 +6,4 @@ class Api::V1::Items::ItemsMerchantController < ApplicationController
 
     respond_with item.merchant
   end
-
-
 end
