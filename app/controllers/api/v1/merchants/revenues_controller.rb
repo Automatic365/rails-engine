@@ -15,7 +15,6 @@ class Api::V1::Merchants::RevenuesController < ApplicationController
     @merchants = Merchant.all_revenue(params[:date])
   end
 
-
   private
     def revenue_params
       params.permit(:id, :date)
