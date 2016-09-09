@@ -14,4 +14,5 @@ class InvoiceItem < ApplicationRecord
   # def unit_price
   #   (self[:unit_price]).round(2).to_s
   # end
+
 end
