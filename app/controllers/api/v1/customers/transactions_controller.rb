@@ -2,8 +2,8 @@ class Api::V1::Customers::TransactionsController < ApplicationController
   respond_to :json
 
   def show
-    customer = Customer.find_by(customer_params)
-    respond_with customer.invoices
+    @transactions = Customer.find_by(customer_params).transactions
+    respond_with @transactions
   end
 
   private

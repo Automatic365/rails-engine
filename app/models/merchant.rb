@@ -45,4 +45,28 @@ class Merchant < ApplicationRecord
     .where(invoices: { created_at: date})
     .sum('(invoice_items.quantity * invoice_items.unit_price/100.00)')
   end
+  
+  def favorite_customer
+    customer_id = customers.joins(:transactions)
+    .where(transactions: {result: "success"})
+    .group('customers.id').order("count_transactions DESC").limit(1)
+    .count("transactions")
+    .keys.join
+  Customer.find(customer_id)
+    
+    # select('COUNT(invoices.customer_id)')
+    # require "pry"; binding.pry
+    # .joins(customers: [invoices: [:transactions]])
+    # .where(transactions: {result: 'success'})
+    # .where('invoices.merchant_id = ?', id)
+    # .group('customers.id')
+    # .order('invoices.customer_id DESC')
+    
+    # find_by_sql("SELECT customers.id, COUNT(invoices.customer_id) FROM invoices 
+    # INNER JOIN transactions ON transactions.invoice_id = invoices.id 
+    # INNER JOIN customers ON customers.id = invoices.customer_id 
+    # WHERE transactions.result = 'success' AND invoices.merchant_id = ?
+    # GROUP BY customers.id ORDER BY COUNT(invoices.customer_id) DESC", id
+    
+  end
 end

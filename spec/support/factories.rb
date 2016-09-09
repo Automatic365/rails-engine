@@ -44,7 +44,7 @@ FactoryGirl.define do
   end
 
   factory :transaction do
-    credit_card_expiration_date 2016-09-07
+    credit_card_expiration_date "2016-09-07"
     result "successful"
     credit_card_number "1234-4567-7890-1234"
     transaction

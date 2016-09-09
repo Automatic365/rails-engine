@@ -8,7 +8,6 @@ class Api::V1::Items::SearchController < ApplicationController
   
   def show
     if params[:unit_price]
-      # require "pry"; binding.pry
       price = params[:unit_price] 
       new_price = price.to_f * 100
       params[:new_price] = new_price

@@ -13,8 +13,10 @@ Rails.application.routes.draw do
         get ':id/invoices', on: :collection, to: "merchants/merchant_invoices#index"
         get ':id/customers_with_pending_invoices', on: :collection, to: "merchants/pendings#index"
         get '/revenue', on: :collection, to: "merchants/revenues#index"
+        get ':id/favorite_customer', on: :collection, to: "merchants/customers#index"
       end
 
+# GET /api/v1/merchants/:id/favorite_customer returns the customer who has conducted the most total number of successful transactions.
       resources :transactions, only:[:index, :show] do
         get 'find', on: :collection, to: "transactions/searches#show"
         get 'find_all', on: :collection, to: "transactions/searches#index"
@@ -38,8 +40,8 @@ Rails.application.routes.draw do
          get '/:id/transactions', on: :collection, to: "invoices/transactions#show"
          get '/:id/invoice_items', on: :collection, to: "invoices/invoice_items#show"
          get '/:id/items', on: :collection, to: "invoices/items#show"
-         get '/:id/customers', on: :collection, to: "invoices/customers#show"
-         get '/:id/merchants', on: :collection, to: "invoices/merchants#show"
+         get '/:id/customer', on: :collection, to: "invoices/customers#show"
+         get '/:id/merchant', on: :collection, to: "invoices/merchants#show"
        end
 
        resources :items, only: [:index, :show] do

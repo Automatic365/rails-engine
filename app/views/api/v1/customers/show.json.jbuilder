@@ -1,1 +1,1 @@
-json.partial! "customer", customer: @customer
+json.partial! "transactions", customer: @customer
