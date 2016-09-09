@@ -11,7 +11,6 @@ Rails.application.routes.draw do
         get ':id/invoices', on: :collection, to: "merchants/merchant_invoices#index"
         get ':id/customers_with_pending_invoices', on: :collection, to: "merchants/pendings#index"
         get '/revenue', on: :collection, to: "merchants/revenues#index"
-        # GET /api/v1/merchants/revenue?date=x
       end
 
       resources :transactions, only:[:index, :show] do
