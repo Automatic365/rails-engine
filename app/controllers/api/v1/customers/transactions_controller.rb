@@ -3,7 +3,7 @@ class Api::V1::Customers::TransactionsController < ApplicationController
 
   def show
     customer = Customer.find_by(customer_params)
-    respond_with customer.invoices
+    respond_with customer.transactions
   end
 
   private
