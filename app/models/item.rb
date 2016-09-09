@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   def formatted_unit_price
     formatted = unit_price/100.00
-    formatted.to_s
+    # number_with_precision(formatted, precision: 2) #might need to_s
   end
 
   def self.most_revenue(quantity)

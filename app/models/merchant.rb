@@ -43,6 +43,6 @@ class Merchant < ApplicationRecord
     joins(invoices: [:transactions, :invoice_items])
     .where(transactions: {result: 'success'})
     .where(invoices: { created_at: date})
-    .sum('(invoice_items.quantity * invoice_items.unit_price)/100.00')
+    .sum('(invoice_items.quantity * invoice_items.unit_price/100.00)')
   end
 end
