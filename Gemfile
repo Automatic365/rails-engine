@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 7.1.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 4.3', '>= 4.3.9'
 gem 'sass-rails', '~> 5.0'
