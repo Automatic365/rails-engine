@@ -2,19 +2,19 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 7.1.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 4.3', '>= 4.3.9'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails', '>= 4.2.2'
+gem 'jbuilder', '~> 2.6', '>= 2.6.4'
 gem 'unicorn'
 gem 'figaro'
 gem 'faraday'
-gem 'responders'
+gem 'responders', '>= 3.0.0'
 gem 'table_print'
 gem 'spring'
 gem 'faker'
@@ -22,13 +22,13 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.6.0'
   gem 'spring-commands-rspec'
-  gem 'capybara'
+  gem 'capybara', '>= 2.9.0'
   gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '>= 3.1.2'
   gem 'database_cleaner'
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.8', '>= 4.8.0'
   gem 'simplecov', require: false
   gem 'pry-rails'
 end
@@ -45,8 +45,8 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.4.0'
+  gem 'listen', '~> 3.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
